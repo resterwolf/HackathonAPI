@@ -20,18 +20,27 @@ public class XmlBuilder {
         str.append("<HACKATHON>");
         str.append("<USER_INFO>");
 
+        str.append("<EMAIL>").append(user.getUsername()).append("</EMAIL>");
         str.append("<NAME>").append(user.getName()).append("</NAME>");
         str.append("<SURNAME>").append(user.getSurname()).append("</SURNAME>");
-        str.append("<LANGUAGE_ONE>").append(user.getLanguageOne()).append("</LANGUAGE_ONE>");
-        str.append("<LANGUAGE_TWO>").append(user.getLanguageTwo()).append("</LANGUAGE_TWO>");
+
+
+        str.append("<LANGUAGES>");
+        for (Language lang : user.getLanguages()) {
+            str.append("<LANGUAGE>");
+            str.append("<LANG_NAME>").append(lang.getTitle()).append("</LANG_NAME>");
+            str.append("<PROFICIENCY>").append(lang.getProficiency()).append("</PROFICIENCY>");
+            str.append("</LANGUAGE>");
+        }
+        str.append("</LANGUAGES>");
 
         str.append("<WORKING_DAYS>");
         for (Day day : user.getWorkingDays()) {
-            str.append("<Day>");
-            str.append("<Name>").append(day.getName()).append("</Name>");
+            str.append("<DAY>");
+            str.append("<DAY_NAME>").append(day.getName()).append("</DAY_NAME>");
             str.append("<TIME_FROM>").append(day.getTimeFrom()).append("</TIME_FROM>");
             str.append("<TIME_TO>").append(day.getTimeTo()).append("</TIME_TO>");
-            str.append("</Day>");
+            str.append("</DAY>");
         }
         str.append("</WORKING_DAYS>");
 

@@ -8,9 +8,8 @@ public class User {
     private  String password;
 
     private String name = new String();
-    private String surname = new String();;
-    private String languageOne = new String();;
-    private String languageTwo = new String();;
+    private String surname = new String();
+    private ArrayList<Language> languages = new ArrayList<>();
     private ArrayList<Day> workingDays = new ArrayList<>();
     private double rating = 0;
     private double hoursWorked = 0;
@@ -50,21 +49,14 @@ public class User {
         this.surname = surname;
     }
 
-    public String getLanguageOne() {
-        return languageOne;
+    public ArrayList<Language> getLanguages() {
+        return languages;
     }
 
-    public void setLanguageOne(String languageOne) {
-        this.languageOne = languageOne;
+    public void addLanguage(Language language) {
+        this.languages.add(language);
     }
 
-    public String getLanguageTwo() {
-        return languageTwo;
-    }
-
-    public void setLanguageTwo(String languageTwo) {
-        this.languageTwo = languageTwo;
-    }
 
     public ArrayList<Day> getWorkingDays() {
         return workingDays;

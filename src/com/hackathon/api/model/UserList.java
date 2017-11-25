@@ -24,8 +24,8 @@ public class UserList extends ArrayList<User> {
         User user1 = new User("mansur@test.test","mansur");
         user1.setName("Mansur");
         user1.setSurname("Betrakhmadov");
-        user1.setLanguageOne("English");
-        user1.setLanguageTwo("Turkish");
+        user1.addLanguage(new Language("English","Advanced"));
+        user1.addLanguage(new Language("Turkish","Advanced"));
         user1.addWorkingDays(new Day("Mon","9:00 AM","12:00 PM"));
         user1.addWorkingDays(new Day("Tue","1:00 PM","3:00 PM"));
         user1.setRating(3.5);
