@@ -20,7 +20,6 @@ public class XmlBuilder {
         str.append("<HACKATHON>");
         str.append("<USER_INFO>");
 
-        str.append("<EMAIL>").append(user.getUsername()).append("</EMAIL>");
         str.append("<NAME>").append(user.getName()).append("</NAME>");
         str.append("<SURNAME>").append(user.getSurname()).append("</SURNAME>");
 
@@ -43,8 +42,7 @@ public class XmlBuilder {
             str.append("</DAY>");
         }
         str.append("</WORKING_DAYS>");
-
-//        str.append("<RATING>").append(String.valueOf(user.getRating())).append("</RATING>");
+        
         str.append("<RATING>").append(String.valueOf(String.format("%.2f",user.getRating()))).append("</RATING>");
 
         str.append("<HOURS_WORKED>").append(String.valueOf(user.getHoursWorked())).append("</HOURS_WORKED>");
