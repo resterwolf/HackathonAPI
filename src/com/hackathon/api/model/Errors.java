@@ -5,7 +5,9 @@ public enum Errors {
     EmailIParamsNotExist (1, "Email param does not exist."),
     PasswordParamIsNotExist (2, "Password param does not exist."),
     UserIsNotFound (3, "User is not found."),
-    PasswordIsIncorrect (4, "Password is incorrect");
+    PasswordIsIncorrect (4, "Password is incorrect"),
+    RatingParamIsNotExist (5, "Rating param does not exist."),
+    RatingParseFailed(6, "Failed parse rating to double.");
 
     private int id;
     private String message;

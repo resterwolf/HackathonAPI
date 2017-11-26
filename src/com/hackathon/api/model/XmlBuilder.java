@@ -44,7 +44,9 @@ public class XmlBuilder {
         }
         str.append("</WORKING_DAYS>");
 
-        str.append("<RATING>").append(String.valueOf(user.getRating())).append("</RATING>");
+//        str.append("<RATING>").append(String.valueOf(user.getRating())).append("</RATING>");
+        str.append("<RATING>").append(String.valueOf(String.format("%.2f",user.getRating()))).append("</RATING>");
+
         str.append("<HOURS_WORKED>").append(String.valueOf(user.getHoursWorked())).append("</HOURS_WORKED>");
         str.append("<MONEY_EARNED>").append(String.valueOf(user.getMoneyEarned())).append("</MONEY_EARNED>");
 

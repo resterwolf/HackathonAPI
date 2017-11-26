@@ -15,4 +15,14 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ChangeRatingServlet</servlet-name>
+        <servlet-class>com.hackathon.api.HttpServlets.ChangeRating</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ChangeRatingServlet</servlet-name>
+        <url-pattern>/update_rating</url-pattern>
+    </servlet-mapping>
+
 </web-app>

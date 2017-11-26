@@ -1,8 +1,6 @@
 package com.hackathon.api.model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class UserList extends ArrayList<User> {
 
@@ -28,7 +26,7 @@ public class UserList extends ArrayList<User> {
         user1.addLanguage(new Language("Turkish","Advanced"));
         user1.addWorkingDays(new Day("Mon","9:00 AM","12:00 PM"));
         user1.addWorkingDays(new Day("Tue","1:00 PM","3:00 PM"));
-        user1.setRating(3.5);
+        user1.addRating(3.54);
         user1.setHoursWorked(10.5);
         user1.setMoneyEarned(1000.4);
         users.add(user1);

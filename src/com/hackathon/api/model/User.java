@@ -11,7 +11,7 @@ public class User {
     private String surname = new String();
     private ArrayList<Language> languages = new ArrayList<>();
     private ArrayList<Day> workingDays = new ArrayList<>();
-    private double rating = 0;
+    private ArrayList<Double> ratings = new ArrayList<>();
     private double hoursWorked = 0;
     private double moneyEarned = 0;
 
@@ -67,11 +67,22 @@ public class User {
     }
 
     public double getRating() {
-        return rating;
+        double averageRating = 0;
+
+        if (!ratings.isEmpty()) {
+
+            for (Double rating : ratings) {
+                averageRating += rating;
+            }
+
+            averageRating = averageRating / ratings.size();
+        }
+
+        return averageRating;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void addRating(Double rating) {
+        this.ratings.add(rating) ;
     }
 
     public double getHoursWorked() {
