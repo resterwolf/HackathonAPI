@@ -18,6 +18,7 @@ public class ChangeRating extends HttpServlet {
         PrintWriter writer = resp.getWriter();
 
         String email = req.getParameter("email");
+        String password = req.getParameter("password");
         String rating = req.getParameter("new_rating");
         double doubleRating;
 
@@ -28,9 +29,33 @@ public class ChangeRating extends HttpServlet {
             return;
         }
 
-        // not parameter Password
+        // not parameter password
+        if (password == null || password.isEmpty()) {
+            writer.write(XmlBuilder.makeErrorXmlString(Errors.PasswordParamIsNotExist));
+            writer.flush();
+            return;
+        }
+
+        // not parameter new_rating
         if (rating == null || rating.isEmpty()) {
             writer.write(XmlBuilder.makeErrorXmlString(Errors.RatingParamIsNotExist));
+            writer.flush();
+            return;
+        }
+
+        UserList users = UsersHolder.getUsers();
+        User user = users.getUserByEmail(email);
+
+        // user not found
+        if (user == null) {
+            writer.write(XmlBuilder.makeErrorXmlString(Errors.UserIsNotFound));
+            writer.flush();
+            return;
+        }
+
+        // if password is not match
+        if (!user.getPassword().equals(password)) {
+            writer.write(XmlBuilder.makeErrorXmlString(Errors.PasswordIsIncorrect));
             writer.flush();
             return;
         }
@@ -42,17 +67,6 @@ public class ChangeRating extends HttpServlet {
 
         } catch (NumberFormatException ex) {
             writer.write(XmlBuilder.makeErrorXmlString(Errors.RatingParseFailed));
-            writer.flush();
-            return;
-        }
-
-
-        UserList users = UsersHolder.getUsers();
-        User user = users.getUserByEmail(email);
-
-        // user not found
-        if (user == null) {
-            writer.write(XmlBuilder.makeErrorXmlString(Errors.UserIsNotFound));
             writer.flush();
             return;
         }

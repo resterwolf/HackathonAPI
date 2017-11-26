@@ -27,7 +27,7 @@ public class LoginHttpServlet extends HttpServlet {
             return;
         }
 
-        // not parameter Password
+        // not parameter password
         if (password == null || password.isEmpty()) {
             writer.write(XmlBuilder.makeErrorXmlString(Errors.PasswordParamIsNotExist));
             writer.flush();
